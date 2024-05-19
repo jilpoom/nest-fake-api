@@ -16,15 +16,27 @@
 
 - Prisma
 
-## 프로젝트 실행을 위한 절차
+## 프로젝트 복제 및 실행을 위한 절차
 
 1. nest-fake-api의 `master` 브랜치를 로컬 PC에 복사하세요.
 
 ```shell
-> git clone https://github.com/jilpoom/nest-fake-api.git
+git clone https://github.com/jilpoom/nest-fake-api.git <새로운 저장소 디렉토리명>
 ```
 
-2. `Prisma`와 `Nest.js`는 `dotenv` 패키지를 지원합니다. 루트 디렉토리에 `.env` 파일을 생성하여 다음을 입력한 후, 원하는 값으로 변경하여 사용하세요.
+2. 리모트 저장소를 새로운 저장소로 변경합니다.
+
+```shell
+git remote set-url origin <새로운 저장소.git> 
+```
+
+3. Github Actions를 위한 `.github/` 디렉토리를 삭제합니다.
+
+```
+rm -rf ./github
+```
+
+4. `Prisma`와 `Nest.js`는 `dotenv` 패키지를 지원합니다. 루트 디렉토리에 `.env` 파일을 생성하여 다음을 입력한 후, 원하는 값으로 변경하여 사용하세요.
 
 ```shell
 DEV_DATABASE_URL="file:./dev.db"
@@ -35,26 +47,26 @@ ENV="dev"
 
 > `SQLite`는 임베디드 DB로, 위의 데이터베이스 경로(`DEV_DATABASE_URL`) 값 외에 추가적인 메타 데이터가 필요하지 않습니다.
 
-3. `package.json`에 정의된 종속성을 설치합니다.
+5. `package.json`에 정의된 종속성을 설치합니다.
 
 ```shell
-> npm i
+npm i
 ```
 
-4. `/prisma/schema.prisma`에 정의된 데이터베이스 스키마를 생성하세요.
+6. `/prisma/schema.prisma`에 정의된 데이터베이스 스키마를 생성하세요.
 
 ```shell
-> npm run migrate:prisma init
+npm run migrate:prisma <name>
 ```
 
-5. 이후, 다음 명령을 이용해, 유닛 테스트를 진행하세요.
+7. 이후, 다음 명령을 이용해, 유닛 테스트를 진행하세요.
 
 ```shell
 # 테스트 실행
-> npm run test
+npm run test
 
 # 테스트 커버리지 문서화
-> npm run test:cov
+npm run test:cov
 ```
 
 > 현재 유닛 테스트만 작성되어 있으며, 추후 통합 테스트를 작성할 예정입니다.
@@ -62,7 +74,7 @@ ENV="dev"
 6. 다음의 명령어를 통해, 프로젝트를 실행하세요
 
 ```shell
-> npm run start:dev
+npm run start:dev
 ```
 
 7. 다음 주소를 통해 Swagger UI에 접근할 수 있습니다.
@@ -93,3 +105,4 @@ http://localhost:3000/api
 | 16  | `class-validator` Request DTO 유효성 검사  | 2024-05-16 | feature/validate |
 | 17  | `User`, `Post` 모델에 `create_at` 칼럼 추가  | 2024-05-16 | feature/domain   |
 | 18  | `README.md`에 프로젝트 사용방법 최신화            | 2024-05-17 | docs/readme      |
+| 18  | 프로젝트 사용 방법 오류 수정                      | 2024-05-19 | docs/readme      | 
