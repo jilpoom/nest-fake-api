@@ -33,7 +33,7 @@ git remote set-url origin <새로운 저장소.git>
 3. Github Actions를 위한 `.github/` 디렉토리를 삭제합니다.
 
 ```
-rm -rf ./github
+rm -rf ./.github/
 ```
 
 4. `Prisma`와 `Nest.js`는 `dotenv` 패키지를 지원합니다. 루트 디렉토리에 `.env` 파일을 생성하여 다음을 입력한 후, 원하는 값으로 변경하여 사용하세요.
@@ -105,4 +105,4 @@ http://localhost:3000/api
 | 16  | `class-validator` Request DTO 유효성 검사  | 2024-05-16 | feature/validate |
 | 17  | `User`, `Post` 모델에 `create_at` 칼럼 추가  | 2024-05-16 | feature/domain   |
 | 18  | `README.md`에 프로젝트 사용방법 최신화            | 2024-05-17 | docs/readme      |
-| 18  | 프로젝트 사용 방법 오류 수정                      | 2024-05-19 | docs/readme      | 
+| 19  | 프로젝트 사용 방법 오류 수정                      | 2024-05-19 | docs/readme      | 
